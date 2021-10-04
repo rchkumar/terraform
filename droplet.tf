@@ -18,5 +18,4 @@ resource "digitalocean_droplet" "mydroplet" {
   region = "nyc1"
   size   = "s-1vcpu-1gb"
 }
-
 */
