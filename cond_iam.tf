@@ -1,4 +1,4 @@
-
+/*
 provider "aws" {
   region = "us-east-1"
   profile = "default"
@@ -18,3 +18,4 @@ resource "aws_iam_user" "iamuser1" {
   path = "/system/"
   count = var.istest == false ? 1 : 0
 }
+*/
