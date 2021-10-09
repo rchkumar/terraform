@@ -1,0 +1,30 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_eip.myeip (expand)" [label = "aws_eip.myeip", shape = "box"]
+		"[root] aws_instance.myec2instance (expand)" [label = "aws_instance.myec2instance", shape = "box"]
+		"[root] aws_instance.web (expand)" [label = "aws_instance.web", shape = "box"]
+		"[root] aws_security_group.allow_tls (expand)" [label = "aws_security_group.allow_tls", shape = "box"]
+		"[root] aws_security_group.ram_sg (expand)" [label = "aws_security_group.ram_sg", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] var.allowports" [label = "var.allowports", shape = "note"]
+		"[root] aws_eip.myeip (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_instance.myec2instance (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_instance.web (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_security_group.allow_tls (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_security_group.allow_tls (expand)" -> "[root] var.allowports"
+		"[root] aws_security_group.ram_sg (expand)" -> "[root] aws_eip.myeip (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_instance.myec2instance (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_instance.web (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_security_group.allow_tls (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_security_group.ram_sg (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.myec2instance (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_instance.web (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group.allow_tls (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_security_group.ram_sg (expand)"
+		"[root] root" -> "[root] meta.count-boundary (EachMode fixup)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
+
