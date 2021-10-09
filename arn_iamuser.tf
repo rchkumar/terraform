@@ -1,3 +1,5 @@
+/*
+
 provider "aws" {
   region = "us-east-1"
   profile = "default"
@@ -15,3 +17,5 @@ resource "aws_iam_user" "iamuser" {
 output "arns" {
   value = aws_iam_user.iamuser[*].arn
 }
+
+*/
